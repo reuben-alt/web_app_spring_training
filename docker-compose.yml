@@ -1,7 +1,7 @@
 version: "3.9"
 services:
     todolist:
-        build : . # (1)
+        build : .
         deploy:
             replicas: 3
         labels:
@@ -9,22 +9,20 @@ services:
             - "traefik.http.middlewares.todolist.stripPrefix.prefixes=/app"
             - "traefik.http.routers.todolist.middlewares=todolist@docker"
 
-
     traefik:
-         image: traefik:2.5
-         restart: unless-stopped
-         ports:
-              - "80:80"
-              - "8080:8080"
+        image: traefik:latest
+        restart: unless-stopped
+        ports:
+            - "80:80"
+            - "8080:8080"
         volumes:
-              - /var/run/docker.sock:/var/run/docker.sock:ro
-              - ./traefik.toml:/traefik.toml
+            - /var/run/docker.sock:/var/run/docker.sock:ro
+            - ./traefik.toml:/traefik.toml
 
     postgres:
-        image: postgres:14.0-alpine
+        image: postgres:latest
         container_name: postgres
         ports:
             - "5432:5432"
         environment:
             POSTGRES_PASSWORD: example
-

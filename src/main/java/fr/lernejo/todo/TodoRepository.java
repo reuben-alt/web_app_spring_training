@@ -6,20 +6,20 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public class TodoRepository implements CrudRepository<TodoIdentity, Long> {
+public class TodoRepository implements CrudRepository<TodoEntity, Long> {
 
     @Override
-    public <S extends TodoIdentity> S save( S entity) {
+    public <S extends TodoEntity> S save(S entity) {
         return null;
     }
 
     @Override
-    public <S extends TodoIdentity> Iterable<S> saveAll(Iterable<S> entities) {
+    public <S extends TodoEntity> Iterable<S> saveAll(Iterable<S> entities) {
         return null;
     }
 
     @Override
-    public Optional<TodoIdentity> findById(Long aLong) {
+    public Optional<TodoEntity> findById(Long aLong) {
         return Optional.empty();
     }
 
@@ -29,12 +29,12 @@ public class TodoRepository implements CrudRepository<TodoIdentity, Long> {
     }
 
     @Override
-    public Iterable<TodoIdentity> findAll() {
+    public Iterable<TodoEntity> findAll() {
         return null;
     }
 
     @Override
-    public Iterable<TodoIdentity> findAllById(Iterable<Long> longs) {
+    public Iterable<TodoEntity> findAllById(Iterable<Long> longs) {
         return null;
     }
 
@@ -49,7 +49,7 @@ public class TodoRepository implements CrudRepository<TodoIdentity, Long> {
     }
 
     @Override
-    public void delete(TodoIdentity entity) {
+    public void delete(TodoEntity entity) {
 
     }
 
@@ -59,12 +59,15 @@ public class TodoRepository implements CrudRepository<TodoIdentity, Long> {
     }
 
     @Override
-    public void deleteAll(Iterable<? extends TodoIdentity> entities) {
+    public void deleteAll(Iterable<? extends TodoEntity> entities) {
 
     }
 
     @Override
     public void deleteAll() {
 
+    }
+
+    public void save(Todo todo) {
     }
 }
